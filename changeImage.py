@@ -12,8 +12,7 @@ for file in listdir("/home/student-02-7e2a3189f672/supplier-data/images"):
     print(file)
     image = Image.open("/home/student-02-7e2a3189f672/supplier-data/images/" + file)
 #convert file from RGBA to RGB
-#resize image
-    image.convert("RGB").resize((600,400))
+    image_jpeg = image.convert("RGB")
 #change image format
     file_jpeg = re.sub("tiff", "jpeg", file)
-    image.save("/home/student-02-7e2a3189f672/supplier-data/images/"+file_jpeg)
+    image_jpeg.resize((600,400)).save("/home/student-02-7e2a3189f672/supplier-data/images/"+file_jpeg)
