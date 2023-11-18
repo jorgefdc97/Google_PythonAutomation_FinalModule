@@ -6,8 +6,9 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 
 def generate_report(attachment, title, paragraph):
-  styles = getSampleStyleSheet() 
-  report = SimpleDocTemplate(attachment)
+  report = SimpleDocTemplate("/tmp/processed.pdf")
+  styles = getSampleStyleSheet()
   report_title = Paragraph(title, styles["h1"])
-  report.build([report_title])
+  report_body = Paragraph(paragraph)
+  report.build([report_title, report_body])
   print("GERADO")
